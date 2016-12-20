@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="577e9344-b658-4246-a3cf-04a9baefbd94" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/week1/karatsuba-homework.sc" afterPath="$PROJECT_DIR$/src/week1/karatsuba-homework.sc" />
     </list>
     <ignored path="coursework-algorithms.iws" />
@@ -99,8 +98,8 @@
       <file leaf-file-name="karatsuba-homework.sc" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/week1/karatsuba-homework.sc">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.38599107">
-              <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+            <state vertical-scroll-proportion="1.4083457">
+              <caret line="63" column="57" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -798,12 +797,12 @@
       <workItem from="1481315006837" duration="6202000" />
       <workItem from="1481899218752" duration="689000" />
       <workItem from="1481910434436" duration="21687000" />
-      <workItem from="1482268623208" duration="899000" />
+      <workItem from="1482268623208" duration="1392000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29477000" />
+    <option name="totallyTimeSpent" value="29970000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="42" width="1439" height="854" extended-state="0" />
@@ -962,8 +961,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/week1/karatsuba-homework.sc">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.38599107">
-          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+        <state vertical-scroll-proportion="1.4083457">
+          <caret line="63" column="57" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
           <folding />
         </state>
       </provider>

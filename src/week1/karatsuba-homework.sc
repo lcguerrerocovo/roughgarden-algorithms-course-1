@@ -1,39 +1,8 @@
+def toBigIntegerList(x: String) = x.map(x => x.toInt - 48).toList
+
 def karatsuba(x: String, y: String): String = {
 
-  def toBigIntegerList(x: String) = x.map(x => x.toInt - 48).toList
-
   def karatsuba(x: List[Int], y: List[Int]): List[Int] = {
-
-    def sumWithCarry(first: List[Int], second: List[Int]): List[Int] = {
-      def sumWithCarry(first: List[Int], second: List[Int], crr: Int): List[Int] = (first, second) match {
-        case (List(), List()) => if (crr != 0) crr :: Nil else Nil
-        case (x :: xs, y :: ys) => {
-          if (x + y + crr < 10) (x + y + crr) :: sumWithCarry(xs, ys, 0)
-          else (x + y + crr - 10) :: sumWithCarry(xs, ys, 1)
-        }
-        case (x :: xs, List()) => {
-          if (x + crr < 10) {
-            (x + crr) :: sumWithCarry(xs, List(), 0)
-          } else (x + crr - 10) :: sumWithCarry(xs, List(), 1)
-        }
-        case (List(), y :: ys) => {
-          if (y + crr < 10) {
-            (y + crr) :: sumWithCarry(List(), ys, 0)
-          } else (y + crr - 10) :: sumWithCarry(List(), ys, 1)
-        }
-      }
-      sumWithCarry(first.reverse, second.reverse, 0).reverse
-    }
-
-    def shiftListExponential10(list: List[Int], z: Int) = {
-      list ++ List.fill(z)(0)
-    }
-
-    def multiplyListWithScalar(list: List[Int], z: Int) = {
-      list.zipWithIndex.map { case (x, y) =>
-        toBigIntegerList((x * z * math.pow(10, list.length - y - 1)).toInt.toString)
-      }.reduceLeft(sumWithCarry)
-    }
 
     if (x.length == 1) {
       multiplyListWithScalar(y, x(0))
@@ -54,6 +23,37 @@ def karatsuba(x: String, y: String): String = {
     }
   }
   karatsuba(toBigIntegerList(x), toBigIntegerList(y)) mkString ""
+}
+
+def sumWithCarry(first: List[Int], second: List[Int]): List[Int] = {
+  def sumWithCarry(first: List[Int], second: List[Int], crr: Int): List[Int] = (first, second) match {
+    case (List(), List()) => if (crr != 0) crr :: Nil else Nil
+    case (x :: xs, y :: ys) => {
+      if (x + y + crr < 10) (x + y + crr) :: sumWithCarry(xs, ys, 0)
+      else (x + y + crr - 10) :: sumWithCarry(xs, ys, 1)
+    }
+    case (x :: xs, List()) => {
+      if (x + crr < 10) {
+        (x + crr) :: sumWithCarry(xs, List(), 0)
+      } else (x + crr - 10) :: sumWithCarry(xs, List(), 1)
+    }
+    case (List(), y :: ys) => {
+      if (y + crr < 10) {
+        (y + crr) :: sumWithCarry(List(), ys, 0)
+      } else (y + crr - 10) :: sumWithCarry(List(), ys, 1)
+    }
+  }
+  sumWithCarry(first.reverse, second.reverse, 0).reverse
+}
+
+def shiftListExponential10(list: List[Int], z: Int) = {
+  list ++ List.fill(z)(0)
+}
+
+def multiplyListWithScalar(list: List[Int], z: Int) = {
+  list.zipWithIndex.map { case (x, y) =>
+    toBigIntegerList((x * z * math.pow(10, list.length - y - 1)).toInt.toString)
+  }.reduceLeft(sumWithCarry)
 }
 
 assert(karatsuba("5678", "1234") == "7006652")
